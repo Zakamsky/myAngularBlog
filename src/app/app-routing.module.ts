@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
-import {MainLayoutsComponent} from "./shared/components/main-layouts/main-layouts.component";
+import {MainLayoutComponent} from "./shared/components/main-layout/main-layout.component";
 import {HomePageComponent} from "./home-page/home-page.component";
 import {PostPageComponent} from "./post-page/post-page.component";
 
 
 const routes: Routes = [
   {
-    path: '', component: MainLayoutsComponent, children: [
+    path: '', component: MainLayoutComponent, children: [
       {path: '', redirectTo: '/', pathMatch: 'full'},
       {path: '', component: HomePageComponent},
       {path: 'post/:id', component: PostPageComponent},
