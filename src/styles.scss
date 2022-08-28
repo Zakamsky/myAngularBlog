@@ -247,8 +247,9 @@ table th {
 .navbar {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
-  padding: 0.7rem 2rem;
+  padding: 0.7rem 1rem;
   z-index: 1;
   width: 100%;
   opacity: 0.9;
@@ -261,6 +262,7 @@ table th {
 
   ul {
     display: flex;
+    flex-wrap: wrap;
   }
 
   li.active a {

@@ -1,2 +1,24 @@
-<p>admin-layout works!</p>
-<router-outlet></router-outlet>
+<div class="bg-primary">
+  <nav class="navbar bg-primary container">
+    <h1>
+      <a routerLink="/">Admin page</a>
+    </h1>
+
+    <ul>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/admin', 'dashboard']">dashboard</a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/admin', 'create']">Create new post</a>
+      </li>
+      <li>
+        <a href="#" (click)="logout($event)">log out</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
