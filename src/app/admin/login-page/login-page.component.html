@@ -1,1 +1,48 @@
-<p>login-page works!</p>
+<form
+  class="form"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+
+>
+  <h2>Log in</h2>
+
+  <div
+    [ngClass]="{invalid: form?.get('email')?.touched && form?.get('email')?.invalid}"
+    class="form-control"
+  >
+    <label for="email">Email: </label>
+    <input formControlName="email" type="email" name="email" id="email">
+    <div
+      *ngIf="form?.get('email')?.touched && form?.get('email')?.invalid"
+      class="valiudation"
+    >
+      <small *ngIf="form!.get('email')!.errors!['required']">Email is a required field </small>
+      <small *ngIf="form!.get('email')!.errors!['email']">Enter a valid email, please</small>
+
+    </div>
+  </div>
+
+  <div
+    [ngClass]="{invalid: form?.get('password')?.touched && form?.get('password')?.invalid}"
+    class="form-control"
+  >
+    <label for="password">Password: </label>
+    <input formControlName="password" type="password" name="password" id="password">
+    <div
+      *ngIf="form?.get('password')?.touched && form?.get('password')?.invalid"
+      class="valiudation"
+    >
+      <small *ngIf="form!.get('password')!.errors!['required']">Password is a required field</small>
+      <small *ngIf="form!.get('password')!.errors!['minlength']">
+        Password must be at least {{ form?.get('password')?.errors?.['minlength']?.requiredLength }} characters long. now it has only {{ form?.get('password')?.errors?.['minlength']?.actualLength }} characters
+      </small>
+    </div>
+  </div>
+
+  <button
+    [disabled]="form?.invalid"
+    type="submit"
+    class="btn btn-primary"
+  >log in</button>
+
+</form>
